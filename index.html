@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nature Lovers Resort | Nature Meets Luxury</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <!-- FontAwesome for WhatsApp Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <!-- Floating WhatsApp Button Styles -->
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            border-radius: 50%;
+            text-align: center;
+            ;
+
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            z-index: 2000;
+        }
+
+        .whatsapp-float i {
+            color: #fff;
+            font-size: 32px;
+            margin: auto;
+            margin-top: 15px;
+        }
+    </style>
+    <!-- Video Reel Carousel Styles -->
+    <style>
+        .reel-carousel {
+            position: relative;
+            max-width: 1500px;
+            margin: 2rem auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4px;
+        }
+
+        .reel-slide {
+            display: block;
+        }
+
+        .reel-slide video {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .reel-prev,
+        .reel-next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            background: rgba(0, 0, 0, 0.5);
+            user-select: none;
+            transform: translateY(-50%);
+            border-radius: 3px;
+        }
+
+        .reel-prev {
+            left: 10px;
+        }
+
+        .reel-next {
+            right: 10px;
+        }
+
+        .reel-dots {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .reel-dot {
+            cursor: pointer;
+            height: 12px;
+            width: 12px;
+            margin: 0 4px;
+            background: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background 0.6s ease;
+        }
+
+        .reel-dot.active {
+            background: #717171;
+        }
+
+        /*  */
+        @media (max-width: 768px) {
+            .reel-carousel {
+                display: flex;
+                overflow-x: auto;
+                gap: 10px;
+                padding: 10px;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .reel-slide {
+                flex: 0 0 50%;
+
+                scroll-snap-align: start;
+            }
+
+            .reel-slide video {
+                width: 100%;
+            }
+        }
+    </style>
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+    <!-- FontAwesome for WhatsApp Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-pDHy1Gn+FmjDdKZ9rjIoebR5A7vV9DyN5OksynV+4dTQ5E3j8N/1x9TF+4d8zboc6qHznu3KpQf+6e6R7uJQ1Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Nature Lovers Resort</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experiences">Experiences</a></li>
+                <li><a href="#stay">Stay</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+
+    <section class="hero" id="home">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h1>Welcome to Nature Lovers Resort</h1>
+            <p>
+                Where luxury blends seamlessly with the serenity of nature. Discover a
+                monsoon paradise just minutes from Indore.
+            </p>
+            <a href="#popup-form" class="cta-button">Book Your Stay</a>
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="fade-in">
+        <h2 class="section-title">About Us</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🏞️</span>
+                <h3>Scenic Location</h3>
+                <p>
+                    Located near the scenic Tincha Falls, our eco-luxury retreat offers
+                    comfortable stays amidst pristine nature.
+                </p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🌿</span>
+                <h3>Eco-Luxury</h3>
+                <p>
+                    Our cottages, camps, and activity zones are designed to help you
+                    disconnect from chaos and reconnect with peace.
+                </p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🌟</span>
+                <h3>Premium Experience</h3>
+                <p>
+                    Experience the perfect blend of comfort and adventure in our
+                    carefully curated natural environment.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiences Section -->
+    <section id="experiences" class="fade-in">
+        <h2 class="section-title">Experiences</h2>
+        <ul class="experience-list">
+            <li class="experience-item">🌧️ Monsoon walks through misty hills</li>
+            <li class="experience-item">
+                🐎 Horse riding and mountain biking for the adventurous
+            </li>
+            <li class="experience-item">
+                🥾 Guided nature treks to hidden waterfalls
+            </li>
+            <li class="experience-item">
+                🦌 Jungle safari with glimpses of local wildlife
+            </li>
+            <li class="experience-item">
+                🔥 Bonfire nights with stories, music, and local cuisine
+            </li>
+            <li class="experience-item">
+                🎮 Outdoor and indoor games for all age groups
+            </li>
+        </ul>
+    </section>
+
+    <!-- Accommodation Section -->
+    <section id="stay" class="fade-in">
+        <h2 class="section-title">Stay With Us</h2>
+        <div class="accommodation-grid">
+            <div class="accommodation-card">
+                <div class="accommodation-content">
+                    <h3>🏡 Luxury Cottages</h3>
+                    <p>
+                        Panoramic valley views with premium amenities and private spaces
+                        for ultimate comfort.
+                    </p>
+                </div>
+            </div>
+            <div class="accommodation-card">
+                <div class="accommodation-content">
+                    <h3>⛺ Premium Tents</h3>
+                    <p>
+                        Sleep under the starry sky in our comfortable tents equipped with
+                        modern facilities.
+                    </p>
+                </div>
+            </div>
+            <div class="accommodation-card">
+                <div class="accommodation-content">
+                    <h3>🏊 Pool Cottages</h3>
+                    <p>
+                        Select cottages with private pool access for an exclusive luxury
+                        experience.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div style="
+          text-align: center;
+          margin-top: 2rem;
+          padding: 2rem;
+          background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+          border-radius: 15px;
+        ">
+            <p>
+                <strong>All stays include:</strong> Complimentary breakfast, access to
+                activity zones, and guided nature walks.
+            </p>
+        </div>
+    </section>
+
+    <!-- Video Reel Section -->
+    <section id="reel" class="fade-in">
+        <h2 class="section-title">Take a Tour</h2>
+        <div class="reel-carousel">
+            <div class="reel-slide"><video src="ab (1).mp4" autoplay controls></video></div>
+            <div class="reel-slide"><video src="ab (2).mp4" autoplay controls></video></div>
+            <div class="reel-slide"><video src="ab (3).mp4" autoplay controls></video></div>
+            <div class="reel-slide"><video src="ab (4).mp4" autoplay controls></video></div>
+            <div class="reel-slide"><video src="ab (5).mp4" autoplay controls></video></div>
+            <div class="reel-slide"><video src="ab (6).mp4" autoplay controls></video></div>
+            <div class="reel-slide"><video src="ab (7).mp4" autoplay controls></video></div>
+            <div class="reel-slide"><video src="ab (8).mp4" autoplay controls></video></div>
+        </div>
+    </section>
+
+    <section class="fade-in constent-section">
+        <div class="constent-image">
+            <img src="c.webp" alt="">
+        </div>
+        <div class="constent-text">
+            <h3>Reconnect with Nature</h3>
+            <p>
+                Experience the tranquility and beauty of the great outdoors at Nature Lovers Resort. Our resort offers
+                an
+                immersive stay in close proximity to forests, jungles, and wildlife-rich areas, providing the perfect
+                escape
+                for nature enthusiasts, adventure seekers, and those seeking a peaceful retreat.
+            </p>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location fade-in">
+        <h2 class="section-title">Location</h2>
+        <div style="
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 80px;
+          text-align: center;
+          padding: 2rem;
+          background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+          border: 1px solid #dee2e6;
+          border-radius: 15px;
+        ">
+            <div>
+                <div>
+                    <p style="font-size: 1.1rem; margin-bottom: 1rem; text-align: left; ">
+                        📍 Just 45 minutes from Indore, en route to Tincha Falls
+                    </p>
+                    <p style="text-align: left;">
+                        The resort offers ample parking and optional pick-up/drop services for
+                        your convenience.
+                    </p>
+                    <h3 style="margin-top: 30px;">Nature Lovers Resort
+                    </h3>
+                    <p style="text-align: start;">Nature Lovers Resorts by Naganpuriya Group, Berchha, Madhya Pradesh,
+                        India</p>
+                </div>
+            </div>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.4742610813396!2d75.9834762!3d22.5613588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962e97ea8297fa3%3A0x4c00aad8682ce756!2sNature%20Lovers%20Resorts%20by%20Naganpuriya%20Group!5e0!3m2!1sen!2sin!4v1754038878446!5m2!1sen!2sin"
+                width="700" height="500" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="fade-in">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">📧</span>
+                <h3>Email</h3>
+                <p>sales@gostay.co.in</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📱</span>
+                <h3>Phone/WhatsApp</h3>
+                <p>+91-9977188333</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📸</span>
+                <h3>Social Media</h3>
+                <p>Follow us on Instagram: @stayscape</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="fade-in">
+        <h2 class="section-title">Why Choose Nature Lovers Resort?</h2>
+        <div class="experience-list">
+            <div class="experience-item">
+                🌧️ Unmatched monsoon destination near Indore
+            </div>
+            <div class="experience-item">
+                ⚖️ Seamless blend of comfort and adventure
+            </div>
+            <div class="experience-item">
+                👨‍👩‍👧‍👦 Family-friendly, couple-perfect, corporate-ready
+            </div>
+            <div class="experience-item">
+                🌱 Eco-conscious and locally rooted hospitality
+            </div>
+            <div class="experience-item">
+                🏔️ Scenic beauty that redefines getaways
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="popup-form" class="cta-section fade-in">
+        <div class="cta-content">
+            <h2 style="
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+          ">
+                Plan Your Nature Lovers Resort
+            </h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem">
+                Ready to unwind in nature's lap? Whether you're looking for a romantic
+                getaway or a family adventure, StayScape offers the perfect backdrop
+                for unforgettable memories.
+            </p>
+            <a href="javascript:void(0)" class="cta-button" style="
+            background: white;
+            color: #1b5e20;
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+          " onclick="openPopup()">Book Your Stay Now</a>
+        </div>
+    </section>
+
+    <!-- Popup Form -->
+    <div id="popupForm" style="
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        min-width: 350px;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+      ">
+        <button onclick="closePopup()" style="
+          color: rgb(255, 0, 0);
+          border-radius: 50%;
+          width: 25px;
+          border: 1px solid red;
+          font-size: 20px;
+          cursor: pointer;
+          display: block;
+          margin-left: auto;
+        ">
+            ×
+        </button>
+        <h3 style="margin-bottom: 1.8crem; text-align: center;">Book Your Stay</h3>
+        <form id="popupBookingForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required style="
+            width: 100%;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+          " />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required style="
+            width: 100%;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+          " />
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required style="
+            width: 100%;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+          " />
+            <label for="message" style="display: block; margin-bottom: 0.5rem; ">
+                Message
+            </label>
+            <textarea id="message" name="message" required style="
+    width: 100%;
+    height: 120px; /* Optional: adds height */
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical; /* Allows resizing up/down only */
+    box-sizing: border-box;
+    font-size: 1rem;
+    line-height: 1.5;
+  "></textarea>
+
+            <button type="submit" style="
+            background: #1b5e20;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: auto;
+           display: block;
+          ">
+                Submit
+            </button>
+        </form>
+
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+      " onclick="closePopup()"></div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Nature Lovers Resort. All rights reserved.</p>
+        <p>
+            Perfect for Couples, Families, Corporate Retreats, Creators, and Weekend
+            Seekers
+        </p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener("scroll", () => {
+            const navbar = document.getElementById("navbar");
+            if (window.scrollY > 100) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener("click", function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute("href"));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll(".fade-in").forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Mobile menu toggle (basic implementation)
+        const createMobileMenu = () => {
+            if (window.innerWidth <= 768) {
+                const navLinks = document.querySelector(".nav-links");
+                if (navLinks && !document.querySelector(".mobile-toggle")) {
+                    const toggle = document.createElement("div");
+                    toggle.className = "mobile-toggle";
+                    toggle.innerHTML = "☰";
+                    toggle.style.cssText =
+                        "font-size: 1.5rem; cursor: pointer; color: #1b5e20;";
+
+                    toggle.addEventListener("click", () => {
+                        navLinks.style.display =
+                            navLinks.style.display === "flex" ? "none" : "flex";
+                        if (navLinks.style.display === "flex") {
+                            navLinks.style.cssText +=
+                                "position: absolute; top: 100%; left: 0; right: 0; background: white; flex-direction: column; padding: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,0.1);";
+                        }
+                    });
+
+                    document.querySelector(".nav-container").appendChild(toggle);
+                }
+            }
+        };
+
+        // Initialize mobile menu
+        createMobileMenu();
+        window.addEventListener("resize", createMobileMenu);
+
+        // Open Popup
+        function openPopup() {
+            document.getElementById("popupForm").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        // Close Popup
+        function closePopup() {
+            document.getElementById("popupForm").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        // Initialize EmailJS
+        emailjs.init('N2kajaUUrBBDcdoAs');
+
+        // Handle booking form submission via EmailJS
+        document.getElementById('popupBookingForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            emailjs.sendForm('service_vue8w48', 'template_prgidc1', this)
+                .then(function () {
+                    alert('Booking request sent successfully!');
+                    closePopup();
+                }, function (error) {
+                    console.error('Failed to send booking request:', error);
+                    alert('Failed to send request. Please try again later.');
+                });
+        });
+
+    </script>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/919977188333" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+</body>
+
+</html>
