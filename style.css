@@ -37,7 +37,10 @@ nav.scrolled {
     justify-content: space-between;
     align-items: center;
 }
-
+a{
+    text-decoration: none;
+    color: inherit;
+}
 .logo {
     font-family: "Playfair Display", serif;
     font-size: 1.8rem;
@@ -97,26 +100,26 @@ nav.scrolled {
         background-position: center;
     }
 
-    50% {
+    /* 50% {
         background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)),
             url("a.webp");
         background-size: cover;
         background-position: center;
-    }
+    } */
 
-    75% {
+    /* 75% {
         background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)),
             url("e.webp");
         background-size: cover;
         background-position: center;
-    }
+    } */
 
-    100% {
+    /* 100% {
         background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)),
             url("b.webp");
         background-size: cover;
         background-position: center;
-    }
+    } */
 }
 
 .hero-content {
