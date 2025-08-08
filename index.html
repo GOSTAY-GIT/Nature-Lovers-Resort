@@ -183,6 +183,32 @@
 
     <!-- About Section -->
     <section id="about" class="fade-in">
+        <h2 class="section-title">Why settle for standard, when you can stay unforgettable? </h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">✨</span>
+                <h3>Curated Stays Only</h3>
+                <p>
+                    We don’t list everything. Just the ones worth staying for. 
+                </p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">✅</span>
+                <h3>Verified Quality, Honest Comfort </h3>
+                <p>
+                   What you see is what you walk into. No over-promises, no gimmicks.
+                </p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon"> 🎯</span>
+                <h3>Designed Around You </h3>
+                <p>
+                    Whether it’s a workcation, escape, or a weekend reset — there’s a Go Stayz just right for it..
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- <section id="about" class="fade-in">
         <h2 class="section-title">About Us</h2>
         <div class="features-grid">
             <div class="feature-card">
@@ -208,6 +234,55 @@
                     Experience the perfect blend of comfort and adventure in our
                     carefully curated natural environment.
                 </p>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Featured Properties Section -->
+    <section id="featured-properties" class="fade-in">
+        <h2 class="section-title">Our favourites this month</h2>
+        <p style="text-align: center; margin-bottom: 2rem;">
+            Stays people are loving right now — for the views, the vibes, and the value.
+        </p>
+        <div class="properties-grid">
+            <div class="property-card">
+                <div class="property-slider">
+                    <img src="m1.webp" alt="Mountain View Cottage" class="property-thumbnail">
+                    <img src="m2.webp" alt="Mountain View Cottage" class="property-thumbnail">
+                </div>
+                <div class="property-details">
+                    <h3>Mountain View Cottage</h3>
+                    <p>Rating: ⭐⭐⭐⭐⭐</p>
+                    <p>Tags: Scenic Views, Luxury</p>
+                </div>
+            </div>
+            <div class="property-card">
+                <div class="property-slider">
+                    <img src="c2.webp" alt="Pine Serenity" class="property-thumbnail">
+                    <img src="c2b.webp" alt="Pine Serenity" class="property-thumbnail">
+                    <img src="c2c.webp" alt="Pine Serenity" class="property-thumbnail">
+                </div>
+                <div class="property-details">
+                    <h3>Pine Serenity</h3>
+                    <p>Rating: ⭐⭐⭐⭐⭐</p>
+                    <p>Tags: Family-Friendly, Nature Retreat</p>
+                </div>
+            </div>
+            <div class="property-card">
+                <img src="c4.webp" alt="Cedar Ventana Cottage" class="property-thumbnail">
+                <div class="property-details">
+                    <h3>Cedar Ventana Cottage</h3>
+                    <p>Rating: ⭐⭐⭐⭐</p>
+                    <p>Tags: Work-Friendly, Private Space</p>
+                </div>
+            </div>
+            <div class="property-card">
+                <img src="c1.webp" alt="Alpenglow Haven" class="property-thumbnail">
+                <div class="property-details">
+                    <h3>Timberview Retreat</h3>
+                    <p>Rating: ⭐⭐⭐⭐⭐</p>
+                    <p>Tags: Romantic Getaway, Scenic Views</p>
+                </div>
             </div>
         </div>
     </section>
@@ -278,6 +353,52 @@
                 <strong>All stays include:</strong> Complimentary breakfast, access to
                 activity zones, and guided nature walks.
             </p>
+        </div>
+    </section>
+
+    <!-- Why Go Stayz Section -->
+    <section id="why-go-stayz" class="fade-in">
+        <h2 class="section-title">Why Go Stayz?</h2>
+        <p style="text-align: center; margin-bottom: 2rem;">
+            Where thoughtful hospitality meets handpicked comfort.
+        </p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🧠</span>
+                <h3>Curated, not crowded</h3>
+                <p>
+                    We pick fewer properties, but better ones — so you never feel like just another booking.
+                </p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">💬</span>
+                <h3>Real reviews, real stays</h3>
+                <p>
+                    Every property is vetted by real people. No bots, no bait.
+                </p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔄</span>
+                <h3>Flexible support</h3>
+                <p>
+                    Travel isn’t always predictable. Our team has your back when things don’t go to plan.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="call-to-action" class="cta-section fade-in">
+        <div class="cta-content">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1rem;">
+                Start your next stay right
+            </h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                Explore handpicked hotels, boutique resorts, and offbeat gems.
+            </p>
+            <a href="properties.html" class="cta-button" style="background: white; color: #1b5e20; box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);">
+                Browse Stays
+            </a>
         </div>
     </section>
 
@@ -725,6 +846,21 @@
 
         fetchInstagramPosts();
         console.log('Instagram posts fetched successfully');
+
+        // Auto sliding for Mountain View Cottage images
+        const sliders = document.querySelectorAll('.property-slider');
+
+        sliders.forEach(slider => {
+            let currentIndex = 0;
+            const images = slider.querySelectorAll('img');
+
+            setInterval(() => {
+                images.forEach((img, index) => {
+                    img.style.display = index === currentIndex ? 'block' : 'none';
+                });
+                currentIndex = (currentIndex + 1) % images.length;
+            }, 3000); // Change image every 3 seconds
+        });
     </script>
 
 

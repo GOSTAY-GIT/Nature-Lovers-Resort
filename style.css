@@ -1,120 +1,117 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: "Inter", sans-serif;
-    line-height: 1.6;
-    color: #333;
-    overflow-x: hidden;
-    
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  color: #333;
+  overflow-x: hidden;
 }
 
 /* Navigation */
 nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    padding: 1rem 2rem;
-    transition: all 0.3s ease;
-
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 1rem 2rem;
+  transition: all 0.3s ease;
 }
 
 nav.scrolled {
-    background: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
 .nav-container {
-    max-width: 1500px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  max-width: 1500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-a{
-    text-decoration: none;
-    color: inherit;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 .logo {
-    font-family: "Playfair Display", serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #1b5e20;
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1b5e20;
 }
 
 .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
+  display: flex;
+  list-style: none;
+  gap: 2rem;
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: color 0.3s ease;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #1b5e20;
+  color: #1b5e20;
 }
 
 /* Hero Section */
 .hero {
-    height: 100vh;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    overflow: hidden;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
 }
 
 .hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)),
-        url("a.webp");
-    background-size: cover;
-    background-position: center;
-    animation: backgroundShift 15s ease-in-out infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)),
+    url("a.webp");
+  background-size: cover;
+  background-position: center;
+  animation: backgroundShift 15s ease-in-out infinite;
 }
 
 @keyframes backgroundShift {
+  0%,
+  100% {
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)),
+      url("f.webp");
+    background-size: cover;
+    background-position: center;
+  }
 
-    0%,
-    100% {
-        background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)),
-            url("f.webp");
-        background-size: cover;
-        background-position: center;
-    }
-
-    /* 50% {
+  /* 50% {
         background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)),
             url("a.webp");
         background-size: cover;
         background-position: center;
     } */
 
-    /* 75% {
+  /* 75% {
         background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)),
             url("e.webp");
         background-size: cover;
         background-position: center;
     } */
 
-    /* 100% {
+  /* 100% {
         background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)),
             url("b.webp");
         background-size: cover;
@@ -123,358 +120,408 @@ a{
 }
 
 .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    padding: 0 2rem;
-    animation: fadeInUp 1s ease-out;
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 2rem;
+  animation: fadeInUp 1s ease-out;
 }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero h1 {
-    font-family: "Playfair Display", serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    line-height: clamp(3rem, 6vw, 4.8rem);
-    line-height: 1;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: clamp(3rem, 6vw, 4.8rem);
+  line-height: 1;
 
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero p {
-    font-size: clamp(1.1rem, 2vw, 1.3rem);
-    margin-bottom: 2rem;
-    opacity: 0.95;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  margin-bottom: 2rem;
+  opacity: 0.95;
 }
 
 .cta-button {
-    display: inline-block;
-    background: linear-gradient(135deg, #1b5e20, #2e7d32);
-    color: white;
-    padding: 1rem 2.5rem;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(27, 94, 32, 0.3);
-    animation: pulse 2s infinite;
+  display: inline-block;
+  background: linear-gradient(135deg, #1b5e20, #2e7d32);
+  color: white;
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(27, 94, 32, 0.3);
+  animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
 
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.05);
-    }
+  50% {
+    transform: scale(1.05);
+  }
 }
 
 .cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(27, 94, 32, 0.4);
-    animation: none;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(27, 94, 32, 0.4);
+  animation: none;
 }
 
 /* Scroll Indicator */
 .scroll-indicator {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: bounce 2s infinite;
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 2s infinite;
 }
 
 @keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
 
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-        transform: translateX(-50%) translateY(0);
-    }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
 
-    40% {
-        transform: translateX(-50%) translateY(-10px);
-    }
-
-    60% {
-        transform: translateX(-50%) translateY(-5px);
-    }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
 }
 
 .scroll-indicator::after {
-    content: "↓";
-    font-size: 2rem;
-    color: white;
-    opacity: 0.8;
+  content: "↓";
+  font-size: 2rem;
+  color: white;
+  opacity: 0.8;
 }
 
 /* Sections */
 section {
-    /* max-width: 1500px; */
-    margin: 0 auto;
-    padding: 4rem 2rem;
+  /* max-width: 1500px; */
+  margin: 0 auto;
+  padding: 4rem 2rem;
 }
 
 .location {
-    /* height: 80vh;
+  /* height: 80vh;
         border: 2px solid red; */
-    padding: 2rem 1rem;
+  padding: 2rem 1rem;
 }
 
 .section-title {
-    font-family: "Playfair Display", serif;
-    font-size: 2.5rem;
-    color: #1b5e20;
-    text-align: center;
-    margin-bottom: 3rem;
-    position: relative;
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  color: #1b5e20;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
 }
 
 .section-title::after {
-    content: "";
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: linear-gradient(135deg, #1b5e20, #4caf50);
-    border-radius: 2px;
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(135deg, #1b5e20, #4caf50);
+  border-radius: 2px;
 }
 
 /* Feature Grid */
 .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
 }
 
 .feature-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    border: 1px solid #f0f0f0;
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
 }
 
 .feature-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .feature-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    display: block;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
 }
 
 .feature-card h3 {
-    font-family: "Playfair Display", serif;
-    font-size: 1.5rem;
-    color: #1b5e20;
-    margin-bottom: 1rem;
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  color: #1b5e20;
+  margin-bottom: 1rem;
 }
 
 /* Experience Cards */
 .experience-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  list-style: none;
 }
 
 .experience-item {
-    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-    padding: 1.5rem;
-    border-radius: 10px;
-    font-size: 1.3rem;
-    border-left: 4px solid #1b5e20;
-    transition: all 0.3s ease;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  padding: 1.5rem;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  border-left: 4px solid #1b5e20;
+  transition: all 0.3s ease;
 }
 
 .experience-item:hover {
-    background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
-    transform: translateX(5px);
+  background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+  transform: translateX(5px);
 }
 
 /* Accommodation Section */
 .accommodation-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
 }
 
 .accommodation-card {
-    position: relative;
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+  position: relative;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
 .accommodation-card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 .accommodation-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 200px;
-    background: linear-gradient(45deg, #1b5e20, #4caf50);
-    opacity: 0.1;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(45deg, #1b5e20, #4caf50);
+  opacity: 0.1;
 }
 
 .accommodation-content {
-    padding: 2rem;
-    position: relative;
-    z-index: 2;
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 .accommodation-content h3 {
-    font-family: "Playfair Display", serif;
-    font-size: 1.5rem;
-    color: #1b5e20;
-    margin-bottom: 1rem;
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  color: #1b5e20;
+  margin-bottom: 1rem;
+}
+
+/* Featured Properties Section */
+.properties-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.property-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.property-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.property-thumbnail {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.property-details {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.property-details h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  color: #1b5e20;
+  margin-bottom: 0.5rem;
+}
+
+.property-details p {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+/* Property Slider */
+.property-slider img {
+  width: 100%;
+  height: auto;
+  /* aspect-ratio: 3 / 2; */
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 /* CTA Section */
 .cta-section {
-    width: 100% !important;
-    /* max-width: 1500px; */
+  width: 100% !important;
+  /* max-width: 1500px; */
 
-    background: linear-gradient(135deg, #1b5e20, #2e7d32);
-    color: white;
-    text-align: center;
-    padding: 4rem 2rem;
-    margin: 4rem auto;
-    position: relative;
-    overflow: hidden;
+  background: linear-gradient(135deg, #1b5e20, #2e7d32);
+  color: white;
+  text-align: center;
+  padding: 4rem 2rem;
+  margin: 4rem auto;
+  position: relative;
+  overflow: hidden;
 }
 
 .cta-section::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle,
-            rgba(255, 255, 255, 0.1) 0%,
-            transparent 70%);
-    animation: rotate 20s linear infinite;
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  animation: rotate 20s linear infinite;
 }
 
 @keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
 
-    to {
-        transform: rotate(360deg);
-    }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .cta-content {
-    position: relative;
-    z-index: 2;
+  position: relative;
+  z-index: 2;
 }
 
 /* Footer */
 footer {
-    background: #263238;
-    color: white;
-    text-align: center;
-    padding: 3rem 2rem;
-   
-   
+  background: #263238;
+  color: white;
+  text-align: center;
+  padding: 3rem 2rem;
 }
-.constent-section{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-     align-items: center;
+.constent-section {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
 }
-.constent-image , .constent-text {
-    
-    min-width: 300px;
-    width: 40%;
+.constent-image,
+.constent-text {
+  min-width: 300px;
+  width: 40%;
 }
 .constent-image img {
-    width: 100%;
-    height: auto;
-    min-height: 200px;
+  width: 100%;
+  height: auto;
+  min-height: 200px;
 
-    /* object-fit: cover; */
-    border-radius: 10px;
+  /* object-fit: cover; */
+  border-radius: 10px;
 }
-
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
+  .nav-links {
+    display: none;
+  }
 
-    .hero {
-        height: 100vh;
-        padding: 0 1rem;
-    }
+  .hero {
+    height: 100vh;
+    padding: 0 1rem;
+  }
 
-    section {
-        padding: 3rem 1rem;
+  section {
+    padding: 3rem 1rem;
+  }
 
-    }
-
-
-
-    .features-grid,
-    .accommodation-grid {
-        grid-template-columns: 1fr;
-    }
+  .features-grid,
+  .accommodation-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Smooth Scrolling */
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 /* Loading Animation */
 .fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out forwards;
 }
 
 .fade-in:nth-child(even) {
-    animation-delay: 0.2s;
+  animation-delay: 0.2s;
 }
 
 .fade-in:nth-child(odd) {
-    animation-delay: 0.4s;
+  animation-delay: 0.4s;
 }
