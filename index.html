@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nature Lovers Resort | Nature Meets Luxury</title>
+    <title>Go Stayz</title>
+    <link rel="icon" type="image/x-icon" href="icon.png" />
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet" />
@@ -170,17 +171,94 @@
     <!-- Hero Section -->
 
     <section class="hero" id="home">
-        <div class="hero-background"></div>
-        <div class="hero-content">
-            <h1>Not just a stay. A story.
-            </h1>
-            <p>
-                Discover curated hotels & resorts where every corner feels made for you.
-            </p>
-            <a href="#popup-form" class="cta-button">Book Your Stay</a>
+        <div class="hero-slider">
+            <!-- Slide 1 -->
+            <div class="hero-slide active" style="background-image: url('a.webp');">
+                <div class="hero-content">
+                    <h1>Not just a stay. A story.</h1>
+                    <p>Discover curated hotels & resorts where every corner feels made for you.</p>
+                    <a href="#popup-form" class="cta-button">Book Your Stay</a>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="hero-slide" style="background-image: url('b.webp');">
+                <div class="hero-content">
+                    <h1>Escape the obvious.</h1>
+                    <p>From hillside cottages to lakeside retreats — your next hideaway is just a click away.</p>
+                    <a href="#popup-form" class="cta-button">Book Your Stay</a>
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="hero-slide" style="background-image: url('f.webp');">
+                <div class="hero-content">
+                    <h1>Stay where stillness lives.</h1>
+                    <p>Handpicked stays. Honest comfort. No chaos. Just you and the moment.</p>
+                    <a href="#popup-form" class="cta-button">Book Your Stay</a>
+                </div>
+            </div>
         </div>
         <div class="scroll-indicator"></div>
     </section>
+
+    <!-- Add this to your <style> or style.css -->
+    <style>
+        .hero-slider {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+        }
+    </style>
+
+    <!-- Add this before </body> -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelectorAll('.hero-slide');
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                });
+                currentSlide = index;
+            }
+
+            function nextSlide() {
+                const nextIndex = (currentSlide + 1) % slides.length;
+                showSlide(nextIndex);
+            }
+
+            setInterval(nextSlide, 5000); // Change slide every 5 seconds
+            showSlide(0); // Initialize the first slide
+        });
+    </script>
 
     <!-- About Section -->
     <section id="about" class="fade-in">
@@ -246,7 +324,7 @@
             Stays people are loving right now — for the views, the vibes, and the value.
         </p>
         <div class="properties-grid">
-            <div class="property-card">
+            <a href="Stays.html" class="property-card">
                 <div class="property-slider">
                     <img src="m1.webp" alt="Mountain View Cottage" class="property-thumbnail">
                     <img src="m2.webp" alt="Mountain View Cottage" class="property-thumbnail">
@@ -256,8 +334,8 @@
                     <p>Rating: ⭐⭐⭐⭐⭐</p>
                     <p>Tags: Scenic Views, Luxury</p>
                 </div>
-            </div>
-            <div class="property-card">
+            </a>
+            <a href="Stays.html" class="property-card">
                 <div class="property-slider">
                     <img src="c2.webp" alt="Pine Serenity" class="property-thumbnail">
                     <img src="c2b.webp" alt="Pine Serenity" class="property-thumbnail">
@@ -268,23 +346,41 @@
                     <p>Rating: ⭐⭐⭐⭐⭐</p>
                     <p>Tags: Family-Friendly, Nature Retreat</p>
                 </div>
-            </div>
-            <div class="property-card">
+            </a>
+            <a href="Stays.html" class="property-card">
                 <img src="c4.webp" alt="Cedar Ventana Cottage" class="property-thumbnail">
                 <div class="property-details">
                     <h3>Cedar Ventana Cottage</h3>
                     <p>Rating: ⭐⭐⭐⭐</p>
                     <p>Tags: Work-Friendly, Private Space</p>
                 </div>
-            </div>
-            <div class="property-card">
+            </a>
+            <a href="Stays.html" class="property-card">
                 <img src="c1.webp" alt="Alpenglow Haven" class="property-thumbnail">
                 <div class="property-details">
                     <h3>Timberview Retreat</h3>
                     <p>Rating: ⭐⭐⭐⭐⭐</p>
                     <p>Tags: Romantic Getaway, Scenic Views</p>
                 </div>
-            </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="call-to-action" class="cta-section fade-in"
+        style="background: none; padding: 1rem 1rem; margin: 1rem auto;">
+        <div class="cta-content">
+            <h2
+                style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 0.5rem; color: #1b5e20;">
+                Start your next stay right
+            </h2>
+            <p style="font-size: 1.2rem; margin-bottom: 1rem; color: #1b5e20;">
+                Explore handpicked hotels, boutique resorts, and offbeat gems.
+            </p>
+            <a href="Stays.html" class="cta-button"
+                style="background: white; box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3); background-color: #1b5e20;">
+                Browse Stays
+            </a>
         </div>
     </section>
 
@@ -388,21 +484,6 @@
         </div>
     </section>
 
-    <!-- Call to Action Section -->
-    <section id="call-to-action" class="cta-section fade-in">
-        <div class="cta-content">
-            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1rem;">
-                Start your next stay right
-            </h2>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
-                Explore handpicked hotels, boutique resorts, and offbeat gems.
-            </p>
-            <a href="Stays.html" class="cta-button"
-                style="background: white; color: #1b5e20; box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);">
-                Browse Stays
-            </a>
-        </div>
-    </section>
 
     <!-- Video Reel Section -->
     <section id="reel" class="fade-in">
@@ -486,7 +567,7 @@
         <div class="constent-text">
             <h3>Reconnect with Nature</h3>
             <p>
-                Experience the tranquility and beauty of the great outdoors at Nature Lovers Resort. Our resort offers
+                Experience the tranquility and beauty of the great outdoors at Go Stayz. Our resort offers
                 an
                 immersive stay in close proximity to forests, jungles, and wildlife-rich areas, providing the perfect
                 escape
@@ -495,43 +576,6 @@
         </div>
     </section>
 
-    <!-- Location Section -->
-    <section class="location fade-in">
-        <h2 class="section-title">Location</h2>
-        <div style="
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 80px;
-          text-align: center;
-          padding: 2rem;
-          background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-          border: 1px solid #dee2e6;
-          border-radius: 15px;
-        ">
-            <div>
-                <div>
-                    <p style="font-size: 1.1rem; margin-bottom: 1rem; text-align: left; ">
-                        📍 Just 45 minutes from Indore, en route to Tincha Falls
-                    </p>
-                    <p style="text-align: left;">
-                        The resort offers ample parking and optional pick-up/drop services for
-                        your convenience.
-                    </p>
-                    <h3 style="margin-top: 30px;">Nature Lovers Resort
-                    </h3>
-                    <p style="text-align: start;">Nature Lovers Resorts by Naganpuriya Group, Berchha, Madhya Pradesh,
-                        India</p>
-                </div>
-            </div>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.4742610813396!2d75.9834762!3d22.5613588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962e97ea8297fa3%3A0x4c00aad8682ce756!2sNature%20Lovers%20Resorts%20by%20Naganpuriya%20Group!5e0!3m2!1sen!2sin!4v1754038878446!5m2!1sen!2sin"
-                width="700" height="500" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-
-    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="fade-in">
@@ -561,9 +605,11 @@
         </div>
     </section>
 
+
+
     <!-- Why Choose Us Section -->
     <section class="fade-in">
-        <h2 class="section-title">Why Choose Nature Lovers Resort?</h2>
+        <h2 class="section-title">Why Choose Go Stayz Resort?</h2>
         <div class="experience-list">
             <div class="experience-item">
                 🌧️ Unmatched monsoon destination near Indore
@@ -591,7 +637,7 @@
             font-size: 2.5rem;
             margin-bottom: 1rem;
           ">
-                Plan Your Nature Lovers Resort
+                Plan Your Next Stay
             </h2>
             <p style="font-size: 1.2rem; margin-bottom: 2rem">
                 Ready to unwind in nature's lap? Whether you're looking for a romantic
@@ -705,7 +751,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Nature Lovers Resort. All rights reserved.</p>
+        <p>&copy; 2025 Go Stayz. All rights reserved.</p>
         <p>
             Perfect for Couples, Families, Corporate Retreats, Creators, and Weekend
             Seekers
