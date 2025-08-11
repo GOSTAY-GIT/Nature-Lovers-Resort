@@ -39,20 +39,32 @@
     <!-- Video Reel Carousel Styles -->
     <style>
         .reel-carousel {
-            position: relative;
-            max-width: 1500px;
-            margin: 2rem auto;
-            display: grid;
+            width: 1500px;
+            height: 100%;
+            /* margin: 2rem auto; */
+            /* display: grid;
             grid-template-columns: repeat(4, 1fr);
+            gap: 4px; */
+            margin: auto;
+            display: flex;
+            justify-content: start;
+            align-items: center;
             gap: 4px;
+            overflow-x: scroll;
+            scrollbar-width: thin;
+            padding: 0 2rem;
+
+
         }
 
         .reel-slide {
-            display: block;
+
+            width: 100%;
+
         }
 
         .reel-slide video {
-            width: 100%;
+            max-width: 300px;
             border-radius: 15px;
         }
 
@@ -74,15 +86,15 @@
         .reel-prev {
             left: 10px;
         }
-
+        
         .reel-next {
             right: 10px;
         }
 
-        .reel-dots {
+         .reel-dots {
             text-align: center;
             margin-top: 1rem;
-        }
+        } 
 
         .reel-dot {
             cursor: pointer;
@@ -102,22 +114,20 @@
         /*  */
         @media (max-width: 768px) {
             .reel-carousel {
+                width: 100%;
                 display: flex;
                 overflow-x: auto;
                 gap: 10px;
                 padding: 10px;
                 scroll-snap-type: x mandatory;
                 -webkit-overflow-scrolling: touch;
+                overflow: scroll;
+
             }
 
-            .reel-slide {
-                flex: 0 0 100%;
-
-                scroll-snap-align: start;
-            }
 
             .reel-slide video {
-                width: 100%;
+                width: 240px;
             }
         }
     </style>
@@ -325,7 +335,7 @@
             <a href="Stays.html" class="property-card">
                 <div class="property-slider">
                     <img src="m1.webp" alt="Mountain View Cottage" class="property-thumbnail">
-                    <img src="m2.webp" alt="Mountain View Cottage" class="property-thumbnail">
+                    <!-- <img src="m2.webp" alt="Mountain View Cottage" class="property-thumbnail"> -->
                 </div>
                 <div class="property-details">
                     <h3>Mountain View Cottage</h3>
@@ -335,9 +345,9 @@
             </a>
             <a href="Stays.html" class="property-card">
                 <div class="property-slider">
-                    <img src="c2.webp" alt="Pine Serenity" class="property-thumbnail">
+                    <!-- <img src="c2.webp" alt="Pine Serenity" class="property-thumbnail"> -->
                     <img src="c2b.webp" alt="Pine Serenity" class="property-thumbnail">
-                    <img src="c2c.webp" alt="Pine Serenity" class="property-thumbnail">
+                    <!-- <img src="c2c.webp" alt="Pine Serenity" class="property-thumbnail"> -->
                 </div>
                 <div class="property-details">
                     <h3>Pine Serenity</h3>
@@ -383,7 +393,7 @@
     </section>
 
     <!-- Experiences Section -->
-    <section id="experiences" class="fade-in">
+    <!-- <section id="experiences" class="fade-in">
         <h2 class="section-title">Experiences</h2>
         <ul class="experience-list">
             <li class="experience-item">🌧️ Monsoon walks through misty hills</li>
@@ -403,7 +413,7 @@
                 🎮 Outdoor and indoor games for all age groups
             </li>
         </ul>
-    </section>
+    </section> -->
 
     <!-- Accommodation Section -->
     <section id="stay" class="fade-in">
@@ -499,7 +509,7 @@
     </section>
 
     <!-- Instagram Feed Section -->
-    <section id="instagram" class="fade-in">
+    <section id="instagram" class="fade-in" style="display: none;">
         <h2 class="section-title">Follow Us on Instagram</h2>
         <div style="display: flex; justify-content: center; align-items: center; margin: 2rem auto; max-width: 1200px;">
             <!-- Instagram Embed Code -->
@@ -587,19 +597,23 @@
             <div class="feature-card">
                 <span class="feature-icon">📱</span>
                 <h3>Phone/WhatsApp</h3>
-                <p>
+                <div class="Phone-numbers">
 
                     <a href="https://wa.me/919977188333" class="whatsapp-flat" target="_blank">
-                        <span>+91-9977188333 </span>
-
+                        <!-- <span>+91-9977188333 </span> -->
+                        <span>+91-9893279426 </span>
                     </a>
-                </p>
+                    <a href="https://wa.me/919977188333" class="whatsapp-flat" target="_blank">
+                        <!-- <span>+91-9977188333 </span> -->
+                        <span> +91-9893361335 </span>
+                    </a>
+                    <a href="https://wa.me/919977188333" class="whatsapp-flat" target="_blank">
+                        <!-- <span>+91-9977188333 </span> -->
+                        <span> +91-9981247399</span>
+                    </a>
+                </div>
             </div>
-            <div class="feature-card">
-                <span class="feature-icon">📸</span>
-                <h3>Social Media</h3>
-                <p>Follow us on Instagram: @stayscape</p>
-            </div>
+
         </div>
     </section>
 
