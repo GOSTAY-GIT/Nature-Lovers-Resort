@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Eco Holiday Resorts</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        :root {
+            --primary-color: #2C5F2D;
+        }
+
+        .property-detail {
+            display: flex;
+            align-items: flex-start;
+            max-width: 1500px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+        }
+
+        .property-detail-gallery {
+            flex: 1;
+            max-width: 50%;
+            width: 100%;
+            margin-right: 2rem;
+        }
+
+        .property-detail-gallery img {
+            width: 48%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            /* margin-bottom: 5px; */
+            transition: transform 0.2s;
+        }
+
+        .property-detail-gallery img:hover {
+            transform: scale(1.04);
+        }
+
+        .property-detail-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .property-detail-info h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.3rem;
+        }
+
+        .property-detail-info p {
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .property-detail-info section {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .property-detail-info ul {
+            list-style: disc inside;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 2rem;
+        }
+
+        .property-detail-info ul li {
+            flex: 1 1 45%;
+            margin-bottom: 0.5rem;
+        }
+
+        .img-popup-bg {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .img-popup-bg.active {
+            display: flex;
+        }
+
+        .img-popup-bg img {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        .img-popup-bg .close-btn {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: #fff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        th,
+        td {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+        }
+
+        .property-detail-info section.surroundings .table-wrapper {
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .property-detail-info section.surroundings table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html" style="margin:1rem;display:inline-block;">← Back to Stays</a>
+    <h1 style="text-align: center; margin: 1rem 0;">Eco Holiday Resorts</h1>
+    <div class="property-detail">
+        <!-- <h1>Spot17: Bigg Boss</h1> -->
+        <div class="property-detail-gallery">
+            <img src="./eco image/eco (1).webp" alt=" Eco Holiday Resorts" />
+            <img src="./eco image/eco (2).webp" alt=" Eco Holiday Resorts" />
+            <img src="./eco image/eco (3).webp" alt=" Eco Holiday Resorts" />
+            <img src="./eco image/eco (4).webp" alt=" Eco Holiday Resorts" />
+            <img src="./eco image/eco (5).webp" alt=" Eco Holiday Resorts" />
+            <img src="./eco image/eco (6).webp" alt=" Eco Holiday Resorts" />
+            <img src="./eco image/eco (7).webp" alt=" Eco Holiday Resorts" />
+            <img src="./eco image/eco (8).webp" alt=" Eco Holiday Resorts" />
+
+        </div>
+        <div class="property-detail-info">
+            <p><strong>Price:</strong> ₹8,000/night</p>
+            <section class="surroundings">
+                <h3>Surroundings</h3>
+                <div class="table-wrapper">
+                    <table border="1" cellspacing="0" cellpadding="8" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="text-align: start;">Place</th>
+                                <th>Meter/KiloMeter</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Bijasan Mata Temple (Sannod)</td>
+                                <td>500 m</td>
+                            </tr>
+                            <tr>
+                                <td>Chamunda mata Mandir (Dewas)</td>
+                                <td>25 km</td>
+                            </tr>
+                            <tr>
+                                <td>Khajrana Temple (Indore)</td>
+                                <td>25 km</td>
+                            </tr>
+                            <tr>
+                                <td>Mahakaleshwar (Ujjain)</td>
+                                <td>82 km</td>
+                            </tr>
+                            <tr>
+                                <td>Shiva Temple (Omkareshwar)</td>
+                                <td>110 km</td>
+                            </tr>
+                            <tr>
+                                <td>Ujjaini (Popularly known for &quot;Sangam of Narmada And Shipra River&quot;)</td>
+                                <td>7 km</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <section>
+                <h3>Eco Holiday Facilities</h3>
+
+                <ul style="padding:10px; width: fit-content; display: flex; flex-wrap: wrap; column-gap: 40px;">
+                    <li>Wooden Huts</li>
+                    <li>Camping Tents</li>
+                    <li>Stunning Dining Room</li>
+                    <li>Dance Floor</li>
+                    <li>Bicycle Ride</li>
+                    <li>Lawn</li>
+                    <li>Swimming Pool</li>
+                    <li>Mineral water And Veg Restaurant</li>
+                    <li>Indoor And Outdoor Games</li>
+                    <li>Cricket</li>
+                    <li>Badminton</li>
+                    <li>Carrom</li>
+                    <li>Foot Ball</li>
+                    <li>Chess</li>
+                </ul>
+            </section>
+
+
+            <p><strong>All Rooms Have balconies View — 12 km from main dalhousie Market ( Kolatop Century is walkarble
+                    from property)</strong></p>
+
+            <p><strong>Location:</strong> Talai Village</p>
+            <p><strong>Tags:</strong> Mountain Adventure, Hilltop Stay, Mountain Trekking, Nature Stay, Mountain Cabin
+                and spacious-King side stay</p>
+            <p><strong>Rating:</strong> ⭐⭐⭐⭐⭐</p>
+            <p><strong>Description:</strong> Eco holiday resort is perfectly located for leisure guests/Spending Quality
+                Time near by Indore, Dewas And Ujjain. A place To Take Away From The Hustle And Bustle Of The CITY And
+                Indulge In The Beauty Of The Village .Enjoy The Quite And Peaceful Nature. Pollution Free Fresh Air Will
+                Definitely Revive You.
+                <br>
+
+                A holiday In Eco villa IS All About Spending Quality Time In Village With Greenery.
+                <br>
+                This luxurious Resort Is Located In SANNOD Village. Rated ⭐⭐⭐⭐⭐ for its hospitality and scenic charm.
+            </p>
+        </div>
+    </div>
+    <div class="img-popup-bg" id="imgPopup">
+        <span class="close-btn" onclick="closeImgPopup()">&times;</span>
+        <img id="popupImg" src="" alt="Zoomed Image" />
+    </div>
+    <script>
+        // Image popup logic
+        document.querySelectorAll('.property-detail-gallery img').forEach(img => {
+            img.addEventListener('click', function () {
+                document.getElementById('popupImg').src = this.src;
+                document.getElementById('imgPopup').classList.add('active');
+            });
+        });
+        function closeImgPopup() {
+            document.getElementById('imgPopup').classList.remove('active');
+        }
+        document.getElementById('imgPopup').addEventListener('click', function (e) {
+            if (e.target === this) closeImgPopup();
+        });
+    </script>
+</body>
+
+</html>
