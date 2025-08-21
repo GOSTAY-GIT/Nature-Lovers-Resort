@@ -548,8 +548,9 @@ footer {
 
 .constent-image,
 .constent-text {
-    min-width: 300px;
+    min-width: 360px;
     width: 40%;
+    border: 1px solid red;
 }
 
 .constent-image img {
@@ -569,11 +570,11 @@ footer {
 
     .hero {
         height: 100vh;
-        padding: 0 1rem;
+       
     }
 
     section {
-        padding: 3rem 1rem;
+        padding: 3rem 1.5rem;
     }
 
     .features-grid,
