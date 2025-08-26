@@ -216,6 +216,110 @@
                 <li><strong>By Train:</strong> Kalka–Westberry Toy Train (UNESCO heritage).</li>
                 <li><strong>By Road:</strong> Well-connected by buses and cabs from Delhi, Chandigarh, and Manali.</li>
             </ul>
+
+            <div id="popup"  style="margin-top: 2rem; text-align: center;">
+        <div class="cta-content" style="background: none; box-shadow: none;">
+             <button class="cta-button" onclick="openPopup()">Book Now</button>
+
+        </div>
+        </div>
+    </div>
+
+<!-- Popup Form -->
+<div id="popupForm" style="
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    min-width: 350px;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  ">
+    <button onclick="closePopup()" style="
+      color: rgb(255, 0, 0);
+      border-radius: 50%;
+      width: 25px;
+      border: 1px solid red;
+      font-size: 20px;
+      cursor: pointer;
+      display: block;
+      margin-left: auto;
+    ">
+        ×
+    </button>
+    <h3 style="margin-bottom: 1rem; text-align: center;">Book Your Stay</h3>
+    <form id="popupBookingForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required style="
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      " />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required style="
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      " />
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required style="
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      " />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required style="
+        width: 100%;
+        height: 120px;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        resize: vertical;
+      "></textarea>
+
+        <button type="submit" style="
+        background: #1b5e20;
+        color: white;
+        padding: 0.6rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: auto;
+        display: block;
+      ">
+            Submit
+        </button>
+    </form>
+</div>
+
+ <!-- Overlay -->
+    <div id="overlay" style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+      " onclick="closePopup()"></div>
+
+
+
+     </div>
         </div>
     </div>
     <div class="img-popup-bg" id="imgPopup">
@@ -237,6 +341,25 @@
             if (e.target === this) closeImgPopup();
         });
     </script>
+
+     <script>
+        function openPopup() {
+            document.getElementById('popupForm').style.display = 'block';
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById('popupForm').style.display = 'none';
+             document.getElementById("overlay").style.display = "none";
+        }
+
+        window.addEventListener('click', function (event) {
+            const popup = document.getElementById('popupForm');
+            if (event.target === popup) {
+                closePopup();
+            }
+        });
+        </script>
 </body>
 
 </html>
