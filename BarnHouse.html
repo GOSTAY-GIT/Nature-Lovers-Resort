@@ -27,6 +27,7 @@
             border-radius: 12px;
             box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
             padding: 2rem;
+            border: red;
         }
 
         .property-detail-gallery {
@@ -37,6 +38,12 @@
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+            justify-content: flex-start; 
+            overflow: scroll;
+            max-height: 700px;      
+            overflow-y: auto;       
+            overflow-x: hidden;  
+            scrollbar-width: none;
         }
 
         .property-detail-gallery img {
@@ -150,7 +157,9 @@
             }
 
             .property-detail-gallery {
+                overflow: scroll;
                 margin-bottom: 2rem;
+                max-height: 420px;
             }
 
             .property-detail-gallery img {
