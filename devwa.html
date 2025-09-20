@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barn House</title>
+
+    <meta name="description"
+        content="Go Stayz offers handpicked retreats—from hillside cottages to lakeside escapes—designed for tranquil, story-worthy stays. Discover comfort without chaos and book your unforgettable hideaway today.">
+
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        :root {
+            --primary-color: #2C5F2D;
+        }
+
+        h2 {
+            font-size: 2rem;
+            line-height: normal;
+        }
+
+        .property-detail {
+            display: flex;
+            align-items: flex-start;
+            max-width: 1500px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            border: red;
+        }
+
+        .property-detail-gallery {
+            flex: 1;
+            max-width: 50%;
+            width: 100%;
+            margin-right: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: flex-start;
+            overflow: scroll;
+            max-height: 700px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scrollbar-width: none;
+        }
+
+        .property-detail-gallery img {
+            width: 48%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .property-detail-gallery img:hover {
+            transform: scale(1.04);
+        }
+
+        .property-detail-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .property-detail-info h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.3rem;
+        }
+
+        .property-detail-info p {
+            line-height: 1.6;
+            color: #444;
+            margin: 0.5rem 0;
+        }
+
+        .property-detail-info section {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .property-detail-info ul {
+            list-style: disc inside;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 2rem;
+        }
+
+        .property-detail-info ul li {
+            flex: 1 1 45%;
+            margin-bottom: 0.5rem;
+        }
+
+        .img-popup-bg {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.2);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .img-popup-bg.active {
+            display: flex;
+        }
+
+        .img-popup-bg img {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        .img-popup-bg .close-btn {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: #fff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 1024px) {
+            .property-detail {
+                padding: 1.5rem;
+            }
+
+            .property-detail-gallery img {
+                width: 47%;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .property-detail {
+                flex-direction: column;
+                margin: 1rem;
+            }
+
+            .property-detail-gallery,
+            .property-detail-info {
+                max-width: 100%;
+                width: 100%;
+                margin-right: 0;
+            }
+
+            .property-detail-gallery {
+                overflow: scroll;
+                margin-bottom: 2rem;
+                max-height: 420px;
+            }
+
+            .property-detail-gallery img {
+                width: 48%;
+            }
+
+            .property-detail-info ul li {
+                flex: 1 1 100%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .property-detail {
+                padding: 1rem;
+            }
+
+            .property-detail-gallery {
+                max-height: 450px;
+                overflow-y: auto;
+            }
+
+            .property-detail-gallery img {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .property-detail-info h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        .book-now-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(27, 94, 32, 0.2);
+        }
+
+        .book-now-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(27, 94, 32, 0.3);
+            background: linear-gradient(135deg, #2e7d32, #388e3c);
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="index.html" style="margin:1rem;display:inline-block;">← Back to Stays</a>
+    <h2 style="text-align: center;">Denwa Winds - The Resort</h2>
+    <div class="property-detail">
+        <div class="property-detail-gallery">
+
+            <img src="./devwa/dn (1).jpg" alt="Denwa Winds" />
+            <img src="./devwa/dn (2).jpg" alt="Denwa Winds" />
+            <img src="./devwa/dn (3).jpg" alt="Denwa Winds" />
+            <img src="./devwa/dn (4).jpg" alt="Denwa Winds" />
+            <img src="./devwa/dn (5).jpg" alt="Denwa Winds" />
+            <img src="./devwa/dn (6).jpg" alt="Denwa Winds" />
+            <img src="./devwa/dn (7).jpg" alt="Denwa Winds" />
+            <img src="./devwa/dn (8).jpg" alt="Denwa Winds" />
+            <img src="./devwa/dn (9).jpg" alt="Denwa Winds" />
+            
+            
+            <img src="./devwa//d (1).jpg" alt="Denwa Winds" />
+            <img src="./devwa/d (1).webp" alt="Denwa Winds" />
+            <img src="./devwa/d (2).jpg" alt="Denwa Winds" />
+            <img src="./devwa/d (3).jpg" alt="Denwa Winds" />
+            <img src="./devwa/d (4).jpg" alt="Denwa Winds" />
+            <img src="./devwa/d (5).jpg" alt="Denwa Winds" />
+            <img src="./devwa/d (6).jpg" alt="Denwa Winds" />
+            <img src="./devwa/d (7).jpg" alt="Denwa Winds" />
+            <img src="./devwa/d (8).jpg" alt="Denwa Winds" />
+
+        </div>
+        <div class="property-detail-info">
+            <p><strong>Price:</strong> Contact for rates / seasonal packages</p>
+            <p><strong>Location:</strong> Gram Chirrai, Matkuli, Near Pachmarhi, Satpura National Park, Dist.
+                Narmadapuram – 461775</p>
+            <p><strong>Contact:</strong> denwawindsresort@gmail.com | +91 62641 65066</p>
+
+            <section>
+                <h3>🌳 About Denwa Winds Resort</h3>
+                <p>
+                    Denwa Winds Resort is spread over <strong>about 12 acres</strong> beside the river Denwa,
+                    tucked into mango groves and the jungles around <strong>Pachmarhi / Satpura</strong>.
+                    The property blends local Satpura culture with a nature-first design to give guests a
+                    tranquil, immersive wilderness experience.
+                </p>
+                <p>
+                    Expect river/forest views, natural sounds, open dining and plenty of opportunities for
+                    birding, walks and wildlife photography. The resort positions itself as a peaceful
+                    retreat close to nature while offering comfortable amenities.
+                </p>
+            </section>
+
+            <section>
+                <h3>🏘️ Accommodation Types</h3>
+                <ul>
+                    <li><strong>Denwa View Cottages</strong> — cottages with views of the Denwa river and surrounding
+                        forest</li>
+                    <li><strong>Family Cluster Cottages</strong> — grouped cottages ideal for families or small groups
+                    </li>
+                    <li><strong>Lakeside Swiss Tents</strong> — lake-side glamping style tents for a rustic stay</li>
+                    <li><strong>The White House</strong> — larger/private option for guests seeking exclusivity</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>🌿 Unique Experiences & Activities</h3>
+                <ul>
+                    <li><strong>Swim in Nature</strong> — natural/outsourced swimming experiences (check with resort for
+                        exact details)</li>
+                    <li><strong>Open Dining</strong> — meals served with local flavours and scenic views</li>
+                    <li><strong>Lakeside Walks & Jaltarang Lake</strong> — calm lakeside areas for strolls and
+                        relaxation</li>
+                    <li><strong>Rain Dance & Recreational Activities</strong> — events and fun activities for groups
+                    </li>
+                    <li><strong>Gym & Games</strong> — basic recreational facilities available on site</li>
+                    <li><strong>Wildlife & Bird Watching</strong> — great spot for photography and birding excursions
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>🎉 Events & Corporate</h3>
+                <ul>
+                    <li>Destination Weddings — scenic backdrops and event spaces</li>
+                    <li>Corporate Retreats & Group Bookings — team activities and offsite meeting options</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>🚙 How to Reach</h3>
+                <ul>
+                    <li><strong>Nearest Railway Station:</strong> Pipariya (~20 km)</li>
+                    <li><strong>Nearest Airports:</strong> Bhopal (~165 km) and Nagpur (~230 km)</li>
+                    <li>Resort is accessible by road from Pachmarhi and surrounding towns — best to confirm
+                        pickup/transfer options with the resort.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>📸 Why Stay Here / Highlights</h3>
+                <ul>
+                    <li>River-side setting in a mango grove — peaceful, scenic views</li>
+                    <li>Blend of local Satpura culture and nature-forward design</li>
+                    <li>Good for birdwatching, photography, family stays and small events</li>
+                    <li>Several accommodation styles (cottages, tents, private house)</li>
+                </ul>
+            </section>
+
+         
+
+            <div id="popup" style="margin-top: 2rem; text-align: center;">
+                <div class="cta-content" style="background: none; box-shadow: none;">
+                    <button class="cta-button" onclick="openPopup()">Book Now</button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Popup Form -->
+        <div id="popupForm" style="
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    min-width: 350px;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  ">
+            <button onclick="closePopup()" style="
+      color: rgb(255, 0, 0);
+      border-radius: 50%;
+      width: 25px;
+      border: 1px solid red;
+      font-size: 20px;
+      cursor: pointer;
+      display: block;
+      margin-left: auto;
+    ">
+                ×
+            </button>
+            <h3 style="margin-bottom: 1rem; text-align: center;">Book Your Stay</h3>
+            <form id="popupBookingForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required style="
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      " />
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required style="
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      " />
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required style="
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      " />
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required style="
+        width: 100%;
+        height: 120px;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        resize: vertical;
+      "></textarea>
+
+                <button type="submit" style="
+        background: #1b5e20;
+        color: white;
+        padding: 0.6rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: auto;
+        display: block;
+      ">
+                    Submit
+                </button>
+            </form>
+        </div>
+
+        <!-- Overlay -->
+        <div id="overlay" style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+      " onclick="closePopup()"></div>
+
+
+
+    </div>
+    </section>
+
+    </div>
+    </div>
+    <div class="img-popup-bg" id="imgPopup">
+        <span class="close-btn" onclick="closeImgPopup()">&times;</span>
+        <img id="popupImg" src="" alt="Zoomed Image" />
+    </div>
+    <script>
+        // Image popup logic
+        document.querySelectorAll('.property-detail-gallery img').forEach(img => {
+            img.addEventListener('click', function () {
+                document.getElementById('popupImg').src = this.src;
+                document.getElementById('imgPopup').classList.add('active');
+            });
+        });
+        function closeImgPopup() {
+            document.getElementById('imgPopup').classList.remove('active');
+        }
+        document.getElementById('imgPopup').addEventListener('click', function (e) {
+            if (e.target === this) closeImgPopup();
+        });
+    </script>
+
+    <script>
+        function openPopup() {
+            document.getElementById('popupForm').style.display = 'block';
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById('popupForm').style.display = 'none';
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        window.addEventListener('click', function (event) {
+            const popup = document.getElementById('popupForm');
+            if (event.target === popup) {
+                closePopup();
+            }
+        });
+    </script>
+</body>
+
+</html>
