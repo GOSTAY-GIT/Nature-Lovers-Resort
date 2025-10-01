@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barn House</title>
+
+    <meta name="description"
+        content="Go Stayz offers handpicked retreats—from hillside cottages to lakeside escapes—designed for tranquil, story-worthy stays. Discover comfort without chaos and book your unforgettable hideaway today.">
+
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        :root {
+            --primary-color: #2C5F2D;
+        }
+
+        h2 {
+            font-size: 2rem;
+            line-height: normal;
+        }
+
+        .property-detail {
+            display: flex;
+            align-items: flex-start;
+            max-width: 1500px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            border: red;
+        }
+
+        .property-detail-gallery {
+            flex: 1;
+            max-width: 50%;
+            width: 100%;
+            margin-right: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: flex-start;
+            overflow: scroll;
+            max-height: 700px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scrollbar-width: none;
+        }
+
+        .property-detail-gallery img {
+            width: 48%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .property-detail-gallery img:hover {
+            transform: scale(1.04);
+        }
+
+        .property-detail-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .property-detail-info h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.3rem;
+        }
+
+        .property-detail-info p {
+            line-height: 1.6;
+            color: #444;
+            margin: 0.5rem 0;
+        }
+
+        .property-detail-info section {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .property-detail-info ul {
+            list-style: disc inside;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 2rem;
+        }
+
+        .property-detail-info ul li {
+            flex: 1 1 45%;
+            margin-bottom: 0.5rem;
+        }
+
+        .img-popup-bg {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.2);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .img-popup-bg.active {
+            display: flex;
+        }
+
+        .img-popup-bg img {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        .img-popup-bg .close-btn {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: #fff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 1024px) {
+            .property-detail {
+                padding: 1.5rem;
+            }
+
+            .property-detail-gallery img {
+                width: 47%;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .property-detail {
+                flex-direction: column;
+                margin: 1rem;
+            }
+
+            .property-detail-gallery,
+            .property-detail-info {
+                max-width: 100%;
+                width: 100%;
+                margin-right: 0;
+            }
+
+            .property-detail-gallery {
+                overflow: scroll;
+                margin-bottom: 2rem;
+                max-height: 420px;
+            }
+
+            .property-detail-gallery img {
+                width: 48%;
+            }
+
+            .property-detail-info ul li {
+                flex: 1 1 100%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .property-detail {
+                padding: 1rem;
+            }
+
+            .property-detail-gallery {
+                max-height: 450px;
+                overflow-y: auto;
+            }
+
+            .property-detail-gallery img {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .property-detail-info h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        .book-now-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(27, 94, 32, 0.2);
+        }
+
+        .book-now-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(27, 94, 32, 0.3);
+            background: linear-gradient(135deg, #2e7d32, #388e3c);
+        }
+    </style>
+</head>
+
+<body>
+  <a href="index.html" style="margin:1rem;display:inline-block;">← Back to Stays</a>
+  <h2 style="text-align: center;">Kavish Jawai Village Resort</h2>
+  <div class="property-detail">
+    <div class="property-detail-gallery">
+      <img src="./kavish-jawaiPerwa/kjp (1).jpg" alt="Kavish Jawai Village Resort" />
+      <img src="./kavish-jawaiPerwa/kjp (1).webp" alt="Kavish Jawai Village Resort" />
+      <img src="./kavish-jawaiPerwa/kjp (10).webp" alt="Kavish Jawai Village Resort" />
+      <img src="./kavish-jawaiPerwa/kjp (11).webp" alt="Kavish Jawai Village Resort" />
+      <img src="./kavish-jawaiPerwa/kjp (12).webp" alt="Kavish Jawai Village Resort" />
+      <img src="./kavish-jawaiPerwa/kjp (2).jpg" alt="Kavish Jawai Village Resort" />
+      <img src="./kavish-jawaiPerwa/kjp (3).jpg" alt="Kavish Jawai Village Resort" />
+      <img src="./kavish-jawaiPerwa/kjp (3).webp" alt="Kavish Jawai Village Resort" />
+      <img src="./kavish-jawaiPerwa/kjp (4).jpg" alt="Kavish Jawai Village Resort" />
+      <img src="./kavish-jawaiPerwa/kjp (4).webp" alt="Kavish Jawai Village Resort" />
+      <img src="./kavish-jawaiPerwa/kjp (5).webp" alt="Kavish Jawai Village Resort" />
+      <img src="./kavish-jawaiPerwa/kjp (6).webp" alt="Kavish Jawai Village Resort" />
+      <img src="./kavish-jawaiPerwa/kjp (7).webp" alt="Kavish Jawai Village Resort" />
+      <img src="./kavish-jawaiPerwa/kjp (8).webp" alt="Kavish Jawai Village Resort" />
+      <img src="./kavish-jawaiPerwa/kjp (9).webp" alt="Kavish Jawai Village Resort" />
+     
+    </div>
+    <div class="property-detail-info">
+      <p><strong>Price:</strong> Contact for rates / seasonal packages</p>
+      <p><strong>Location:</strong> Perwa Village, Jawai, Rajasthan – 306126</p>
+      <!-- <p><strong>Contact:</strong> [email protected] | +91-97733-41728 | +91-99132-17773 | +91-93286-28030 | +91-93580-08045</p> -->
+
+      <section>
+        <h3>🌿 About Kavish Jawai Village Resort</h3>
+        <p>
+          Kavish Jawai Village Resort is a boutique luxury wildlife resort nestled in the picturesque Jawai Perwa, Rajasthan. The resort offers 10 well-appointed garden-facing villas equipped with modern amenities, providing guests with a serene and comfortable stay amidst nature. :contentReference[oaicite:4]{index=4}
+        </p>
+        <p>
+          Ideal for weekend getaways, leisure trips, and intimate weddings, the resort features a garden lawn perfect for small gatherings and celebrations. :contentReference[oaicite:5]{index=5}
+        </p>
+      </section>
+
+      <section>
+        <h3>🏡 Accommodation Types</h3>
+        <ul>
+          <li><strong>Garden-Facing Villas</strong> — Luxurious villas offering views of the lush gardens.</li>
+          <li><strong>Luxury Tents</strong> — Glamping-style tents combining comfort with nature.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>🌟 Unique Experiences & Activities</h3>
+        <ul>
+          <li><strong>Leopard Safari</strong> — Guided safaris to spot leopards in their natural habitat.</li>
+          <li><strong>Bird Watching</strong> — Explore the diverse avian life around the resort.</li>
+          <li><strong>Crocodile Sighting</strong> — Witness crocodiles in their natural environment.</li>
+          <li><strong>Nature Walks</strong> — Guided walks through the scenic landscapes of Jawai.</li>
+          <li><strong>Shiv Temple Visit</strong> — Explore the nearby Shiv Temple, just 2.5 km from the resort.</li>
+          <li><strong>Jawai Dam</strong> — Visit the Jawai Dam, located 30 km away, for a day trip.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>🎉 Events & Corporate</h3>
+        <ul>
+          <li>Destination Weddings — Scenic backdrops and event spaces for memorable weddings.</li>
+          <li>Corporate Retreats & Group Bookings — Team activities and offsite meeting options.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>🚙 How to Reach</h3>
+        <ul>
+          <li><strong>Nearest Railway Station:</strong> Jawai Bandh (~15 km)</li>
+          <li><strong>Nearest Airports:</strong> Udaipur (~90 km)</li>
+          <li>The resort is accessible by road from nearby towns — best to confirm pickup/transfer options with the resort.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>📸 Why Stay Here / Highlights</h3>
+        <ul>
+          <li>Boutique luxury amidst the wilderness of Jawai.</li>
+          <li>Proximity to the Jawai Leopard Conservation Zone.</li>
+          <li>Ideal for wildlife enthusiasts and nature lovers.</li>
+          <li>Offers a blend of modern comforts and rustic charm.</li>
+        </ul>
+      </section>
+
+      <div id="popup" style="margin-top: 2rem; text-align: center;">
+        <div class="cta-content" style="background: none; box-shadow: none;">
+          <button class="cta-button" onclick="openPopup()">Book Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup Form -->
+  <div id="popupForm" style="
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    min-width: 350px;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  ">
+    <button onclick="closePopup()" style="
+      color: rgb(255, 0, 0);
+      border-radius: 50%;
+      width: 25px;
+      border: 1px solid red;
+      font-size: 20px;
+      cursor: pointer;
+      display: block;
+      margin-left: auto;
+    ">
+      ×
+    </button>
+    <h3 style="margin-bottom: 1rem; text-align: center;">Book Your Stay</h3>
+    <form id="popupBookingForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required style="
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      " />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required style="
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      " />
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required style="
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      " />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required style="
+        width: 100%;
+        height: 120px;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        resize: vertical;
+      "></textarea>
+
+      <button type="submit" style="
+        background: #1b5e20;
+        color: white;
+        padding: 0.6rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: auto;
+        display: block;
+      ">
+        Submit
+      </button>
+    </form>
+  </div>
+
+  <!-- Overlay -->
+  <div id="overlay" style="
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  " onclick="closePopup()"></div>
+
+  <script>
+    // Image popup logic
+    document.querySelectorAll('.property-detail-gallery img').forEach(img => {
+      img.addEventListener('click', function () {
+        document.getElementById('popupImg').src = this.src;
+        document.getElementById('imgPopup').classList.add('active');
+      });
+    });
+    function closeImgPopup() {
+      document.getElementById('imgPopup').classList.remove('active');
+    }
+    document.getElementById('imgPopup').addEventListener('click', function (e) {
+      if (e.target === this) closeImgPopup();
+    });
+
+    function openPopup() {
+      document.getElementById('popupForm').style.display = 'block';
+      document.getElementById("overlay").style.display = "block";
+    }
+
+    function closePopup() {
+      document.getElementById('popupForm').style.display = 'none';
+      document.getElementById("overlay").style.display = "none";
+    }
+
+    window.addEventListener('click', function (event) {
+      const popup = document.getElementById('popupForm');
+      if (event.target === popup) {
+        closePopup();
+      }
+    });
+  </script>
+</body>
+
+
+</html>

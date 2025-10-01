@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barn House</title>
+
+    <meta name="description"
+        content="Go Stayz offers handpicked retreats—from hillside cottages to lakeside escapes—designed for tranquil, story-worthy stays. Discover comfort without chaos and book your unforgettable hideaway today.">
+
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        :root {
+            --primary-color: #2C5F2D;
+        }
+
+        h2 {
+            font-size: 2rem;
+            line-height: normal;
+        }
+
+        .property-detail {
+            display: flex;
+            align-items: flex-start;
+            max-width: 1500px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            border: red;
+        }
+
+        .property-detail-gallery {
+            flex: 1;
+            max-width: 50%;
+            width: 100%;
+            margin-right: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: flex-start;
+            overflow: scroll;
+            max-height: 700px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scrollbar-width: none;
+        }
+
+        .property-detail-gallery img {
+            width: 48%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .property-detail-gallery img:hover {
+            transform: scale(1.04);
+        }
+
+        .property-detail-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .property-detail-info h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.3rem;
+        }
+
+        .property-detail-info p {
+            line-height: 1.6;
+            color: #444;
+            margin: 0.5rem 0;
+        }
+
+        .property-detail-info section {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .property-detail-info ul {
+            list-style: disc inside;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 2rem;
+        }
+
+        .property-detail-info ul li {
+            flex: 1 1 45%;
+            margin-bottom: 0.5rem;
+        }
+
+        .img-popup-bg {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.2);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .img-popup-bg.active {
+            display: flex;
+        }
+
+        .img-popup-bg img {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        .img-popup-bg .close-btn {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: #fff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 1024px) {
+            .property-detail {
+                padding: 1.5rem;
+            }
+
+            .property-detail-gallery img {
+                width: 47%;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .property-detail {
+                flex-direction: column;
+                margin: 1rem;
+            }
+
+            .property-detail-gallery,
+            .property-detail-info {
+                max-width: 100%;
+                width: 100%;
+                margin-right: 0;
+            }
+
+            .property-detail-gallery {
+                overflow: scroll;
+                margin-bottom: 2rem;
+                max-height: 420px;
+            }
+
+            .property-detail-gallery img {
+                width: 48%;
+            }
+
+            .property-detail-info ul li {
+                flex: 1 1 100%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .property-detail {
+                padding: 1rem;
+            }
+
+            .property-detail-gallery {
+                max-height: 450px;
+                overflow-y: auto;
+            }
+
+            .property-detail-gallery img {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .property-detail-info h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        .book-now-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(27, 94, 32, 0.2);
+        }
+
+        .book-now-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(27, 94, 32, 0.3);
+            background: linear-gradient(135deg, #2e7d32, #388e3c);
+        }
+    </style>
+</head>
+
+<body>
+  <a href="index.html" style="margin:1rem;display:inline-block;">← Back to Stays</a>
+  <h2 style="text-align: center;">Kavish Gir Lion Resort - Sasan Gir</h2>
+  <div class="property-detail">
+    <div class="property-detail-gallery">
+      <img src="./kavish-sasan-gir/gr (1).jpg" alt="Kavish Gir Lion Resort" />
+      <img src="./kavish-sasan-gir/gr (1).webp" alt="Kavish Gir Lion Resort" />
+      <img src="./kavish-sasan-gir/gr (2).jpg" alt="Kavish Gir Lion Resort" />
+      <img src="./kavish-sasan-gir/gr (2).webp" alt="Kavish Gir Lion Resort" />
+      <img src="./kavish-sasan-gir/gr (3).jpg" alt="Kavish Gir Lion Resort" />
+      <img src="./kavish-sasan-gir/gr (3).webp" alt="Kavish Gir Lion Resort" />
+      <img src="./kavish-sasan-gir/gr (4).jpg" alt="Kavish Gir Lion Resort" />
+      <img src="./kavish-sasan-gir/gr (4).webp" alt="Kavish Gir Lion Resort" />
+      <img src="./kavish-sasan-gir/gr (5).jpg" alt="Kavish Gir Lion Resort" />
+      <img src="./kavish-sasan-gir/gr (5).webp" alt="Kavish Gir Lion Resort" />
+      <img src="./kavish-sasan-gir/gr (6).jpg" alt="Kavish Gir Lion Resort" />
+      <img src="./kavish-sasan-gir/gr (6).webp" alt="Kavish Gir Lion Resort" />
+      <img src="./kavish-sasan-gir/gr (7).jpg" alt="Kavish Gir Lion Resort" />
+      <img src="./kavish-sasan-gir/gr (7).webp" alt="Kavish Gir Lion Resort" />
+      <img src="./kavish-sasan-gir/gr (8).webp" alt="Kavish Gir Lion Resort" />
+      
+    
+    </div>
+    <div class="property-detail-info">
+      <p><strong>Price:</strong> Contact for rates / seasonal packages</p>
+      <p><strong>Location:</strong> Bhalchhel (Sasan-Mendarada Road), Talala, Sasan Gir, Gujarat</p>
+      <!-- <p><strong>Contact:</strong> +91-97733-41728 / +91-93286-28030 | Email via Kavish Hotels website</p> -->
+
+      <section>
+        <h3>🦁 About Kavish Gir Lion Resort</h3>
+        <p>
+          Kavish Gir Lion Resort is located on the Gir Somnath highway near the Gir National Park, the only place in the world where Asiatic Lions roam in the wild. :contentReference[oaicite:1]{index=1}  
+          Many guest rooms offer river views and are surrounded by mango orchards, blending nature and comfort. :contentReference[oaicite:2]{index=2}
+        </p>
+        <p>
+          The resort also emphasizes environmental sustainability: water conservation, energy efficiency, natural landscaping, and responsible waste management. :contentReference[oaicite:3]{index=3}
+        </p>
+      </section>
+
+      <section>
+        <h3>🏘️ Accommodation & Amenities</h3>
+        <ul>
+          <li>Deluxe / River View Cottages / Luxury Cottages :contentReference[oaicite:4]{index=4}</li>
+          <li>Private Pool Villas (in some packages) :contentReference[oaicite:5]{index=5}</li>
+          <li>Swimming pool, indoor & outdoor games, open lawns, multi-cuisine restaurant :contentReference[oaicite:6]{index=6}</li>
+          <li>WiFi, parking, 24-hour reception, meeting/banqueting facilities :contentReference[oaicite:7]{index=7}</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>🌄 Unique Experiences & Activities</h3>
+        <ul>
+          <li>Gir National Park / Lion Safari excursions :contentReference[oaicite:8]{index=8}</li>
+          <li>Nature walks, bird watching :contentReference[oaicite:9]{index=9}</li>
+          <li>Relaxation in mango orchards, scenic views, quiet retreat :contentReference[oaicite:10]{index=10}</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>🎉 Events & Packages</h3>
+        <p>
+          The resort offers **Gir Lion Resort Package** which includes accommodation with meals (MAP – breakfast & dinner), welcome drink, use of hotel recreational facilities and swimming pool, discounts on laundry and F&B, etc. :contentReference[oaicite:11]{index=11}
+        </p>
+      </section>
+
+      <section>
+        <h3>🚗 How to Reach</h3>
+        <ul>
+          <li><strong>Nearest Airport:</strong> Diu / Rajkot / Somnath (depending on route) :contentReference[oaicite:12]{index=12}</li>
+          <li><strong>By Road:</strong> On Sasan-Mendarada Road, Talala, accessible via highway to Gir :contentReference[oaicite:13]{index=13}</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>📸 Highlights</h3>
+        <ul>
+          <li>Proximity to Asiatic Lions and Gir National Park</li>
+          <li>Natural surroundings, mango orchards, river views</li>
+          <li>Luxury stay with modern amenities in wilderness setting</li>
+        </ul>
+      </section>
+
+      <div id="popup" style="margin-top: 2rem; text-align: center;">
+        <div class="cta-content" style="background: none; box-shadow: none;">
+          <button class="cta-button" onclick="openPopup()">Book Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup form, overlay, scripts same as before -->
+</body>
+
+
+</html>

@@ -328,7 +328,8 @@ section {
     margin: 3rem 0;
     text-align: center;
 }
-.Phone-numbers{
+
+.Phone-numbers {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -435,7 +436,7 @@ section {
 .properties-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 1rem;
     margin: 3rem 0;
 }
 
@@ -446,6 +447,7 @@ section {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     border: 1px solid #f0f0f0;
+    padding: 10px;
 }
 
 .property-card:hover {
@@ -458,12 +460,12 @@ section {
     height: auto;
     object-fit: cover;
     border-bottom: 1px solid #f0f0f0;
-border-radius: 10px;
+    border-radius: 10px;
 }
 
 .property-details {
-    padding: 1.5rem;
-    text-align: center;
+    padding: 12px;
+    text-align: start;
 }
 
 .property-details h3 {
@@ -569,7 +571,7 @@ footer {
 
     .hero {
         height: 100vh;
-       
+
     }
 
     section {
